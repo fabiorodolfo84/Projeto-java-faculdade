@@ -6,24 +6,22 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="PEDIDO")
+@Table(name = "PEDIDO")
 public class Pedido extends BaseModel {
     private Date dataEmissao;
     private double totalPedido;
 
     @ManyToOne
-    @JoinColumn(name="cliente_id")
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    
+
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<PedidoProduto> pedidoProdutos;
-
 
     public List<PedidoProduto> getPedidoProdutos() {
         return pedidoProdutos;
@@ -32,9 +30,6 @@ public class Pedido extends BaseModel {
     public void setPedidoProdutos(List<PedidoProduto> pedidoProdutos) {
         this.pedidoProdutos = pedidoProdutos;
     }
-
-    @ManyToMany 
-    private List<Produto> produtos;
 
     public Date getDataEmissao() {
         return dataEmissao;
@@ -59,12 +54,4 @@ public class Pedido extends BaseModel {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }   
 }

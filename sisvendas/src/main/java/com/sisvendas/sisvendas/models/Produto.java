@@ -4,13 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name= "PRODUTO")
-
+@Table(name = "PRODUTO")
 public class Produto extends BaseModel {
-
     private String descricao;
     private String unidade;
     private double preco;
+    
     public String getDescricao() {
         return descricao;
     }
@@ -29,6 +28,4 @@ public class Produto extends BaseModel {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-        
 }
-

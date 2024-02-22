@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class PedidoProduto extends BaseModel {
     private long quantidade;
     private double totalItem;
-    
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "pedido_id")
@@ -53,6 +53,4 @@ public class PedidoProduto extends BaseModel {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-
-    
 }
